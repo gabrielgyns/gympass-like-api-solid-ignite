@@ -42,3 +42,21 @@ GymPass style app.
 ### .npmrc
 
 Fixing versions of the dependecies, so in the future we can upgrade the versions in a safer way.
+
+### Docker
+
+#### Creating a docker image for the PostgreSQL
+
+You can create the docker with the settings with the command below:
+
+```sh
+docker run --name api-solid-pg -e POSTGRESQL_USERNAME=docker -e POSTGRESQL_PASSWORD=docker -e POSTGRESQL_DATABASE=apisolid -p 5432:5432  bitnami/postgresql
+```
+
+but I also created the `docker-compose.yml` which is actually a better option.
+So, when someone clone our projects, this person can just use: `docker compose up -d` (-d -> em background)
+
+### Prisma
+
+-> `npx prisma studio`: Open the ui database info
+-> `npx prisma migrate dev`: Create the migrations
